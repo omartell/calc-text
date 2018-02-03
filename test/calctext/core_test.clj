@@ -27,3 +27,8 @@
   (let [result (with-out-str
                  (-main "resources/example-only-dividing.txt"))]
     (is (= "1" result))))
+
+(deftest supports-squaring-numbers
+  (let [result (with-out-str
+                 (-main "resources/example-only-squaring.txt"))]
+    (is (= "81.0" result))))

@@ -24,6 +24,10 @@
   ([[operator & operands]]
    [/ (map parse-integer operands)]))
 
+(defmethod parse-expression "SQR"
+  ([[operator & operands]]
+   [#(Math/pow % 2) operands]))
+
 (defn perform-operation [acc [operator operands]]
   (apply operator (into [acc] operands)))
 
