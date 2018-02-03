@@ -2,16 +2,21 @@
   (:require [clojure.string :as string])
   (:gen-class))
 
-(defn parse-expression [[operation :as expression]]
-  (case operation
-    "ADD" [+ (map #(Integer/parseInt %) (rest expression))]
-    "SUB" [- (map #(Integer/parseInt %) (rest expression))]))
+(defn parse-integer [s]
+  (Integer/parseInt s))
+
+(defn parse-expression [[operator & operands]]
+  (case operator
+    "ADD" [+ (map parse-integer operands)]
+    "SUB" [- (map parse-integer operands)]))
+
+(defn perform-operation [acc [operator operands]]
+  (apply operator operands))
 
 (defn -main [& [filename]]
-  (let [lines (string/split-lines (slurp filename))]
-    (->> lines
-         (map #(string/split % #"\s"))
-         (map #(parse-expression %))
-         (reduce (fn [acc [operator args]]
-                   (apply operator args)) 0)
-         print)))
+  (->> (slurp filename)
+       string/split-lines
+       (map #(string/split % #"\s"))
+       (map #(parse-expression %))
+       (reduce perform-operation 0)
+       print))
