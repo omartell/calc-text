@@ -5,11 +5,20 @@
 (defn parse-integer [s]
   (Integer/parseInt s))
 
-(defn parse-expression [[operator & operands]]
-  (case operator
-    "ADD"  [+ (map parse-integer operands)]
-    "SUB"  [- (map parse-integer operands)]
-    "MULT" [* (map parse-integer operands)]))
+(defmulti parse-expression (fn [[operator]]
+                             operator))
+
+(defmethod parse-expression "ADD"
+  ([[operator & operands]]
+   [+ (map parse-integer operands)]))
+
+(defmethod parse-expression "SUB"
+  ([[operator & operands]]
+   [- (map parse-integer operands)]))
+
+(defmethod parse-expression "MULT"
+  ([[operator & operands]]
+   [* (map parse-integer operands)]))
 
 (defn perform-operation [acc [operator operands]]
   (apply operator operands))
