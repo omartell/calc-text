@@ -11,4 +11,4 @@
 (deftest supports-adding-numbers
   (let [result (with-out-str
                  (-main "resources/example-only-adding.txt"))]
-    (is (= 5 result))))
+    (is (= "5" result))))
