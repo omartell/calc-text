@@ -20,6 +20,10 @@
   ([[operator & operands]]
    [* (map parse-integer operands)]))
 
+(defmethod parse-expression "DIV"
+  ([[operator & operands]]
+   [/ (map parse-integer operands)]))
+
 (defn perform-operation [acc [operator operands]]
   (apply operator (into [acc] operands)))
 

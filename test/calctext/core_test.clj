@@ -22,3 +22,8 @@
   (let [result (with-out-str
                  (-main "resources/example-only-multiplicating.txt"))]
     (is (= "6" result))))
+
+(deftest supports-dividing-numbers
+  (let [result (with-out-str
+                 (-main "resources/example-only-dividing.txt"))]
+    (is (= "1" result))))
