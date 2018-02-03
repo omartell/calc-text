@@ -7,3 +7,8 @@
   (let [result (with-out-str
                  (-main "resources/example-all-operations.txt"))]
     (is (= 81 result))))
+
+(deftest supports-adding-numbers
+  (let [result (with-out-str
+                 (-main "resources/example-only-adding.txt"))]
+    (is (= 5 result))))
