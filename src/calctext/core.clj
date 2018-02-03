@@ -7,8 +7,9 @@
 
 (defn parse-expression [[operator & operands]]
   (case operator
-    "ADD" [+ (map parse-integer operands)]
-    "SUB" [- (map parse-integer operands)]))
+    "ADD"  [+ (map parse-integer operands)]
+    "SUB"  [- (map parse-integer operands)]
+    "MULT" [* (map parse-integer operands)]))
 
 (defn perform-operation [acc [operator operands]]
   (apply operator operands))

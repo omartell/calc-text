@@ -17,3 +17,8 @@
   (let [result (with-out-str
                  (-main "resources/example-only-substracting.txt"))]
     (is (= "-5" result))))
+
+(deftest supports-multiplicating-numbers
+  (let [result (with-out-str
+                 (-main "resources/example-only-multiplicating.txt"))]
+    (is (= "3" result))))
