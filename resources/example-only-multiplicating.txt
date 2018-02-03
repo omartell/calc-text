@@ -1,2 +1,2 @@
-ADD 1
+ADD 2
 MULT 3

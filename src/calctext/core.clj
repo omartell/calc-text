@@ -21,7 +21,7 @@
    [* (map parse-integer operands)]))
 
 (defn perform-operation [acc [operator operands]]
-  (apply operator operands))
+  (apply operator (into [acc] operands)))
 
 (defn -main [& [filename]]
   (->> (slurp filename)

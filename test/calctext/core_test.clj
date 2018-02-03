@@ -21,4 +21,4 @@
 (deftest supports-multiplicating-numbers
   (let [result (with-out-str
                  (-main "resources/example-only-multiplicating.txt"))]
-    (is (= "3" result))))
+    (is (= "6" result))))
