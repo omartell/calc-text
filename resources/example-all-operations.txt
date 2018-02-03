@@ -1,0 +1,4 @@
+ADD 5
+ADD 7
+SUB 3
+SQR
