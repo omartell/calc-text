@@ -12,3 +12,8 @@
   (let [result (with-out-str
                  (-main "resources/example-only-adding.txt"))]
     (is (= "5" result))))
+
+(deftest supports-substracting-numbers
+  (let [result (with-out-str
+                 (-main "resources/example-only-substracting.txt"))]
+    (is (= "-5" result))))

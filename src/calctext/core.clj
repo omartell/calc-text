@@ -4,7 +4,8 @@
 
 (defn parse-expression [[operation :as expression]]
   (case operation
-    "ADD" [+ (map #(Integer/parseInt %) (rest expression))]))
+    "ADD" [+ (map #(Integer/parseInt %) (rest expression))]
+    "SUB" [- (map #(Integer/parseInt %) (rest expression))]))
 
 (defn -main [& [filename]]
   (let [lines (string/split-lines (slurp filename))]
